@@ -1,0 +1,52 @@
+
+<table class="table table-striped">
+  <thead class="table-light">
+    <tr>
+      <th>Name</th>
+      <th>email</th>
+      <th>gender</th>
+      <th>status</th>
+      <th>EDIT</th>
+    </tr>
+    <tr *ngFor="let user of onuserdata; let i = index">
+      <td><a href="#" onclick="return false;" class="inactiveLink" data-toggle="tooltip" data-placement="bottom" title="{{user.name}}">{{ user.name | shortingname }}</a></td>
+      <td>{{ user.email }}</td>
+      <td><h1><i class="bi bi-gender-{{user.gender}}"></i></h1></td>
+      <td> <input type="checkbox" disabled [checked]="user.status | boolian"  (change)="onStatusChange($event)" ></td>
+      <td>
+        <button type="button" class="btn btn-primary" (click)="toggleModal(); onUserSelect(user)">
+          Edit
+        </button>
+      </td>
+      <!--<td><button mat-raised-button (click)="openDialog()">Edit</button></td>-->
+    </tr>
+  </thead>
+</table>
+
+<br />
+<!-- this should be the component wich would show when editor is open or if you do not want to make it component show it using ngif -->
+<div *ngIf="showModal" class="modal show" tabindex="1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title">Edit Data</h2>
+        <button
+          type="button"
+          class="close"
+          aria-label="Close"
+          (click)="toggleModal()"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- call togglemodal on submit -->
+        <app-test (onUserSubmit)="toggleModal();" [selectedUser]="selectedUser"></app-test>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <div><input type="text" placeholder="lol" [(ngModel)]="lol" /></div>
+<div>
+  <h1>{{ lol }}</h1>
+</div> -->

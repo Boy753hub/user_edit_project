@@ -1,0 +1,29 @@
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+  .inactiveLink {
+    cursor: default;
+    color: black;
+
+ }
+ a:link {
+  text-decoration: none;
+  color: black;
+}
+
+a:visited {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  text-decoration: none;
+  color: black;
+  
+}
+
+a:active {
+  text-decoration: none;
+  color: black;
+}

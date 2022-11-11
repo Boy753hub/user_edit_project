@@ -1,0 +1,35 @@
+<!-- use ngmodel for inputs -->
+<form>
+  <label for="name">Name</label>
+  <br />
+  <input [(ngModel)]="selectedUser.name" [ngModelOptions]="{standalone: true}" type="text" required />
+  <br />
+  <label for="email">email</label>
+  <br />
+  <input [(ngModel)]="selectedUser.email" [ngModelOptions]="{standalone: true}" type="email" id="email" required />
+  <br>
+  <label for="gender">Gender</label><br>
+  <label for="Female">Female</label>
+  <input [(ngModel)]="selectedUser.gender" type="radio" id="female" name="female" value="female">
+  <label for="male">male</label>
+  <input [(ngModel)]="selectedUser.gender" type="radio" id="male" name="male" value="male">
+  <div >
+    <label for="status">Status</label><br>
+  <!--<label for="inactive">inactive</label>
+  <input [(ngModel)]="selectedUser.status" type="radio" id="inactive" name="inactive" value="inactive">
+  <label for="active">active</label>-->
+  <!--<input [(ngModel)]="selectedUser.status" type="checkbox" id="active" name="active" value="active"> -->
+  <input  [(ngModel)]="selectedUser.status" [checked]="selectedUser.status | boolian"   (change)="onStatusChange($event)" type="checkbox" >
+  
+  </div>
+  <!-- moved submit button in this component -->
+  <div class="modal-footer">
+    <button
+      class="btn btn-success"
+      (click)="onSubmit()"
+    >
+      Save
+    </button>
+  </div>
+</form>
+<!-- '[ngModelOptions]="{standalone: true}"' this is because you have 'for' in labels and you can not use ngmodel when using fors google angular forms for more info -->
