@@ -15,9 +15,6 @@ export class MainPageComponent implements OnInit {
   name: any;
   showModal: boolean = false;
   @Input() oncheckChange:boolean = false
-  //you should get the chossen user's info and save it into var
-
-  //you should get the chossen user's info and save it into var
   selectedUser: any;
 
 

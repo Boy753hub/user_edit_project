@@ -11,7 +11,7 @@ import { DataStorageService } from '../data-storage.service';
 })
 export class TestComponent implements OnInit {
 
-  //you should give selected user to this component for editing
+  
   @Input() selectedUser: any;
 
 
